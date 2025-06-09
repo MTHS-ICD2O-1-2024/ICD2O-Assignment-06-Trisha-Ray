@@ -3,28 +3,22 @@
 // Created by: Mr. Coxall
 // Created on: Sep 2020
 // This file contains the JS functions for index.html
-
 'use strict'
 /**
- * This function gets a random anime quote.
+ * This function gets a random dog fact using the dog facts API.
  */
-async function getAnimeQuote() {
+async function getDogFact() {
   try {
-    const resultJSON = await fetch("https://anime-chan.herokuapp.com/api/quotes")
+    const resultJSON = await fetch("https://dog-api.kinduff.com/api/facts")
     const jsonData = await resultJSON.json()
     console.log(jsonData)
 
-    const quote = jsonData.data.content
-    const character = jsonData.data.character.name
-    const anime = jsonData.data.anime.name
+    const fact = jsonData.facts[0]
 
-    // output (plain text)
-    document.getElementById("anime").innerHTML = 
-      "<p>Anime: " + anime + "<br>" +
-      "Character: " + character + "<br>" +
-      "Quote: \"" + quote + "\"</p>"
+    // output
+    document.getElementById("results").innerHTML = `<p>Dog Fact: ${fact}</p>`
   } catch (error) {
     console.error(error)
-    document.getElementById("anime").innerHTML = "<p>There was an error fetching the quote.</p>"
+    document.getElementById("results").innerHTML = "<p>There was an error fetching the dog fact.</p>"
   }
 }
