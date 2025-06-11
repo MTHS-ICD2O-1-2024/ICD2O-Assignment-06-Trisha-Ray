@@ -11,13 +11,13 @@
  */
 async function getNumberFact() {
   try {
-    const response = await fetch('https://numbersapi.com/42')
-    const data = await response.text()
+    const response = await fetch('http://numbersapi.com/42')
+    const data = await response.json()
     console.log(data)
 
     // Output the fun fact to the page
     document.getElementById('number').innerHTML =
-      '<b>Fun Fact:</b> "' + data + '"<br />'
+      '<b>fun fact:</b> "' + data.fact + '"<br />'
   } catch (error) {
     console.error(error)
   }
