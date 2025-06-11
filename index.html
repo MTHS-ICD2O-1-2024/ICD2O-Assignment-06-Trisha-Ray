@@ -14,7 +14,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
-  <title>Dog Facts App</title>
+  <title>Number Facts App</title>
 </head>
 
 <body>
@@ -23,25 +23,27 @@
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
       <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title">Dog Facts App</span>
+        <span class="mdl-layout-title">Number Facts App</span>
       </div>
     </header>
     <main class="mdl-layout__content">
       <div class="right-image">
         <img src="./images/dog.png" alt="dog image" />
       </div>
-      <div class="page-content">Click to see a dog fact!</div>
+      <div class="page-content">Click to see a Number fact!</div>
       <br />
       <form>
         <br />
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-          onclick="getDogFact()" type="button">
-          Show Dog Fact
+          onclick="getNumberFact()" type="button">
+          Show Fact
         </button>
       </form>
       <br />
       <div class="page-content-answer">
-        <div id="results"></div>
+        <div class="results"></div>
+        <div id="number"></div>
+
       </div>
     </main>
   </div>

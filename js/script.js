@@ -4,25 +4,21 @@
 // Created on: Sep 2020
 // This file contains the JS functions for index.html
 'use strict'
+
 /**
- * This function gets a random dog fact using the dog facts API,
- * with a CORS proxy to allow browser access.
+ * This function gets a number fun fact from the API
+ * The 'async' keyword is used because it will take time from the internet to get data
  */
-async function getDogFact() {
+async function getNumberFact() {
   try {
-    const proxyURL = "https://api.allorigins.win/raw?url="
-    const apiURL = "https://dog-api.kinduff.com/api/facts"
+    const response = await fetch('https://numbersapi.com/42')
+    const data = await response.text()
+    console.log(data)
 
-    const resultJSON = await fetch(proxyURL + encodeURIComponent(apiURL))
-    const jsonData = await resultJSON.json()
-    console.log(jsonData)
-
-    const fact = jsonData.facts[0]
-
-    document.getElementById("results").innerHTML = `<p>Dog Fact: ${fact}</p>`
+    // Output the fun fact to the page
+    document.getElementById('number').innerHTML =
+      '<b>Fun Fact:</b> "' + data + '"<br />'
   } catch (error) {
     console.error(error)
-    document.getElementById("results").innerHTML =
-      "<p>There was an error fetching the dog fact.</p>"
   }
 }
