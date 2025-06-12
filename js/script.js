@@ -6,18 +6,17 @@
 'use strict'
 
 /**
- * This function gets a number fun fact from the API
- * The 'async' keyword is used because it will take time from the internet to get data
+ * This function gets a random dog fun fact from the API
  */
-async function getNumberFact() {
+async function getDogFact() {
   try {
-    const response = await fetch('http://numbersapi.com/42')
+    const response = await fetch('https://some-random-api.ml/facts/dog')
     const data = await response.json()
     console.log(data)
 
-    // Output the fun fact to the page
-    document.getElementById('number').innerHTML =
-      '<b>fun fact:</b> "' + data.fact + '"<br />'
+    // Output the dog fact to the page
+    document.getElementById('dog').innerHTML =
+      '<b>dog fun fact:</b> "' + data.fact + '"<br />'
   } catch (error) {
     console.error(error)
   }
