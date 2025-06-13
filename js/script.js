@@ -17,11 +17,11 @@ async function getDogFact() {
     const data = await response.json()
     console.log(data)
 
-    document.getElementById("show-dogfact").innerHTML =
+    document.getElementById("dog").innerHTML =
       '<b>Random Dog Fact:</b><br />' + data.fact
   } catch (error) {
     console.error(error)
-    document.getElementById("show-dogfact").innerHTML =
+    document.getElementById("dog").innerHTML =
       "Could not load dog fact."
   }
 }
