@@ -3,21 +3,25 @@
 // Created by: Mr. Coxall
 // Created on: Sep 2020
 // This file contains the JS functions for index.html
-'use strict'
+"use strict"
 
 /**
- * This function gets a random dog fun fact from the API
+ * This function gets a random dog fact from the API
  */
 async function getDogFact() {
   try {
-    const response = await fetch('https://some-random-api.ml/facts/dog')
+    const corsProxy = "https://corsproxy.io/?"
+    const apiUrl = "https://some-random-api.ml/facts/dog"
+
+    const response = await fetch(corsProxy + encodeURIComponent(apiUrl))
     const data = await response.json()
     console.log(data)
 
-    // Output the dog fact to the page
-    document.getElementById('dog').innerHTML =
-      '<b>dog fun fact:</b> "' + data.fact + '"<br />'
+    document.getElementById("show-dogfact").innerHTML =
+      '<b>Random Dog Fact:</b><br />' + data.fact
   } catch (error) {
     console.error(error)
+    document.getElementById("show-dogfact").innerHTML =
+      "Could not load dog fact."
   }
 }
